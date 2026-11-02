@@ -4,6 +4,6 @@
   "private": true,
   "description": "2026 机场量化天梯榜与科学上网测评导航",
   "scripts": {
-    "build": "node -e \"console.log('Build completed successfully: static site ready for Cloudflare Pages.')\""
+    "build": "node build.js"
   }
 }
