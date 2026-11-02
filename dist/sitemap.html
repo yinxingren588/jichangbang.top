@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <title>网站地图 (Sitemap) · 2026 机场榜全站索引导航 (JichangBang.top)</title>
+  <meta name="description" content="机场榜 (JichangBang.top) 官方网站地图，提供 2026 机场天梯榜、极速专线实测、平价机场推荐、AI流媒体解锁、各大机场独立档案、客户端下载及防踩坑指南全站索引。">
+  <link rel="canonical" href="https://jichangbang.top/sitemap.html">
+  <style>
+    :root {
+      --bg: #050814;
+      --card-bg: rgba(11, 18, 38, 0.78);
+      --card-border: rgba(56, 189, 248, 0.22);
+      --card-hover: rgba(18, 28, 56, 0.95);
+      --text-main: #f8fafc;
+      --text-muted: #cbd5e1;
+      --text-dim: #94a3b8;
+      --primary: #38bdf8;
+      --primary-glow: rgba(56, 189, 248, 0.2);
+      --accent: #10b981;
+      --gold: #f59e0b;
+      --purple: #818cf8;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    .site-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background: #050814 url("assets/starry-moon-bg.webp") center top / cover no-repeat;
+      filter: brightness(0.9) contrast(1.08);
+      pointer-events: none;
+    }
+    .site-bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(circle at 18% 18%, rgba(20, 40, 85, 0.25) 0%, rgba(5, 9, 22, 0.8) 48%, rgba(3, 5, 14, 0.96) 100%);
+      pointer-events: none;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5, 9, 22, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    .nav-bar {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, #0284c7, #38bdf8);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 900; font-size: 20px;
+      box-shadow: 0 4px 16px rgba(14, 165, 233, 0.4);
+    }
+    .brand-title { font-size: 20px; font-weight: 800; color: #fff; display: flex; gap: 8px; align-items: baseline; }
+    .brand-badge {
+      font-size: 11px; font-weight: 700; color: #38bdf8;
+      background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 2px 8px; border-radius: 6px;
+    }
+    .nav-links { display: flex; gap: 16px; align-items: center; }
+    .nav-item {
+      color: var(--text-muted); font-size: 14px; font-weight: 600;
+      padding: 6px 14px; border-radius: 8px; transition: all 0.2s;
+    }
+    .nav-item:hover, .nav-item.active {
+      color: #38bdf8; background: rgba(56, 189, 248, 0.12);
+    }
+    .hero {
+      padding: 60px 0 40px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 16px; border-radius: 50px;
+      background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8; font-size: 13px; font-weight: 700; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 36px; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 14px;
+      background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      color: var(--text-dim); font-size: 15px; max-width: 680px; margin: 0 auto;
+    }
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    .sitemap-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      transition: all 0.25s ease;
+    }
+    .sitemap-card:hover {
+      border-color: rgba(56, 189, 248, 0.5);
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.1);
+      transform: translateY(-2px);
+    }
+    .sc-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+      padding-bottom: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .sc-icon {
+      font-size: 24px; width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .sc-title { font-size: 18px; font-weight: 700; color: #fff; }
+    .sc-count {
+      margin-left: auto; font-size: 11px; padding: 2px 8px; border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06); color: var(--text-dim);
+    }
+    .sc-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .sc-link-item a {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 14px; border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-muted); font-size: 14px; font-weight: 500;
+      transition: all 0.2s;
+    }
+    .sc-link-item a:hover {
+      background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.35);
+      color: #fff; padding-left: 18px;
+    }
+    .sc-link-badge {
+      font-size: 11px; padding: 2px 6px; border-radius: 4px;
+      background: rgba(56, 189, 248, 0.2); color: #38bdf8;
+    }
+    .xml-box {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(129, 140, 248, 0.08));
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .xml-info h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; color: #fff; }
+    .xml-info p { font-size: 13px; color: var(--text-dim); }
+    .xml-btns { display: flex; gap: 12px; }
+    .btn-xml {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 700;
+      background: #0284c7; color: #fff; transition: all 0.2s;
+    }
+    .btn-xml:hover { background: #0369a1; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4); }
+    .btn-txt {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 700;
+      background: rgba(255, 255, 255, 0.08); color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.2s;
+    }
+    .btn-txt:hover { background: rgba(255, 255, 255, 0.15); color: #fff; }
+    footer {
+      border-top: 1px solid rgba(56, 189, 248, 0.18);
+      padding: 40px 0;
+      font-size: 13px;
+      color: var(--text-dim);
+      text-align: center;
+      background: rgba(4, 7, 16, 0.95);
+    }
+    @media (max-width: 768px) {
+      .sitemap-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-bg"></div>
+  <div class="site-bg-overlay"></div>
+
+  <header>
+    <div class="container">
+      <div class="nav-bar">
+        <a href="index.html" class="brand">
+          <div class="brand-icon">榜</div>
+          <div class="brand-title">
+            机场榜
+            <span class="brand-badge">2026</span>
+          </div>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-item">🏆 综合天梯榜</a>
+          <a href="ranking-fast.html" class="nav-item">⚡ 极速专线榜</a>
+          <a href="ranking-budget.html" class="nav-item">💰 高性价比榜</a>
+          <a href="ranking-ai.html" class="nav-item">🤖 AI专用榜</a>
+          <a href="clients.html" class="nav-item">📥 客户端下载</a>
+          <a href="faq.html" class="nav-item">❓ 常见答疑</a>
+          <a href="sitemap.html" class="nav-item active">🗺️ 网站地图</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-badge">🗺️ 全站索引导航 · 持续滚动更新</div>
+      <h1>网站地图 · Sitemap</h1>
+      <p>收录机场榜 (JichangBang.top) 包含全网天梯评测、专线机场档案、客户端配置与避坑科普的全部公开页面。</p>
+    </section>
+
+    <!-- XML 声明与抓取指引 -->
+    <div class="xml-box">
+      <div class="xml-info">
+        <h3>🤖 搜索引擎抓取标准与机器可读协议</h3>
+        <p>本项目已遵循 Sitemaps.org 与 Robots 开放协议，支持 Google、Bing、Baidu、搜狗等全球搜索引擎快速抓取与索引。</p>
+      </div>
+      <div class="xml-btns">
+        <a href="sitemap.xml" target="_blank" class="btn-xml">📄 XML 网站地图</a>
+        <a href="robots.txt" target="_blank" class="btn-txt">🤖 Robots.txt 协议</a>
+      </div>
+    </div>
+
+    <!-- 网站地图分栏 -->
+    <div class="sitemap-grid">
+
+      <!-- 分类一：核心天梯排行榜 -->
+      <div class="sitemap-card">
+        <div class="sc-header">
+          <div class="sc-icon">🏆</div>
+          <div>
+            <div class="sc-title">核心天梯评测榜单</div>
+          </div>
+          <span class="sc-count">5 篇核心榜</span>
+        </div>
+        <ul class="sc-links">
+          <li class="sc-link-item">
+            <a href="index.html">
+              <span>🏠 2026 机场综合量化天梯总榜</span>
+              <span class="sc-link-badge">首页</span>
+            </a>
+          </li>
+          <li class="sc-link-item">
+            <a href="ranking-fast.html">
+              <span>⚡ 晚高峰极速专线推荐榜单</span>
+              <span class="sc-link-badge">4K/8K秒开</span>
+            </a>
+          </li>
+          <li class="sc-link-item">
+            <a href="ranking-budget.html">
+              <span>💰 极致平价与高性价比机场推荐</span>
+              <span class="sc-link-badge">学生党首选</span>
+            </a>
+          </li>
+          <li class="sc-link-item">
+            <a href="ranking-ai.html">
+              <span>🤖 ChatGPT / Claude / AI专用专线榜</span>
+              <span class="sc-link-badge">原生双ISP</span>
+            </a>
+          </li>
+          <li class="sc-link-item">
+            <a href="ranking-paygo.html">
+              <span>📦 不限时按量计费/轻量备用机场榜</span>
+              <span class="sc-link-badge">永不过期</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 分类二：10 大品牌独立测评档案 -->
+      <div class="sitemap-card">
+        <div class="sc-header">
+          <div class="sc-icon">🏢</div>
+          <div>
+            <div class="sc-title">机场品牌独立测评档案</div>
+          </div>
+          <span class="sc-count">10 家专线品牌</span>
+        </div>
+        <ul class="sc-links">
+          <li class="sc-link-item">
+            <a href="brand-firefly.html">
+              <span>🔥 Firefly机场 (萤火虫) 深度评测与全套6款套餐档案</span>
+              <span class="sc-link-badge">IPLC专线</span>
+            </a>
+          </li>
+          <li class="sc-link-item">
+            <a href="brand-civet.html">
+              <span>🐱 灵猫 (Civet Network) 深度评测与全套10款官方套餐</span>
+              <span class="sc-link-badge">1000Mbps</span>
+            </a>
+          </li>
+          <li class="sc-link-item">
+            <a href="brand-yinxingren.html">
+              <span>👑 隐形人 (Invisible Network) · 站长重点主推评测</span>
+              <span class="sc-link-badge">No.1 主推</span>
+            </a>
+          </li>
+          <li class="sc-link-item">
+            <a href="brand-muguang.html">
+              <span>🥈 暮光网络 (Twilight Network) 深度评测档案</span>
+              <span class="sc-link-badge">高性价比</span>
+            </a>
+          </li>
+          <li class="sc-link-item">
+            <a href="brand-breezenet.html">
+              <span>🥉 微风网络 (BreezeNet) 深度评测与套餐档案</span>
+              <span class="sc-link-badge">老牌专线</span>
+            </a>
+          </li>
+          <li class="sc-link-item">
+            <a href="brand-feimaoyun.html">
+              <span>🐱 飞猫云 (Feimaoyun) 深度实测报告</span>
+              <span class="sc-link-badge">IEPL物理线</span>
+            </a>
+          </li>
+          <li class="sc-link-item">
+            <a href="brand-lingdongyun.html">
+              <span>⚡ 灵动云 (Lingdongyun) 深度评测档案</span>
+              <span class="sc-link-badge">轻量均衡</span>
+            </a>
+          </li>
+          <li class="sc-link-item">
+            <a href="brand-feiv.html">
+              <span>🚀 飞V (FlyV) 深度评测档案</span>
+              <span class="sc-link-badge">专线大带宽</span>
+            </a>
+          </li>
+          <li class="sc-link-item">
+            <a href="brand-laddercloud.html">
+              <span>🪜 梯子云 (LadderCloud) 深度评测档案</span>
+              <span class="sc-link-badge">海量节点</span>
+            </a>
+          </li>
+          <li class="sc-link-item">
+            <a href="brand-wavenet.html">
+              <span>🌊 浪网 (WaveNet) 深度评测档案</span>
+              <span class="sc-link-badge">多协议支持</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 分类三：客户端与新手知识指南 -->
+      <div class="sitemap-card">
+        <div class="sc-header">
+          <div class="sc-icon">📚</div>
+          <div>
+            <div class="sc-title">客户端教程与科普指南</div>
+          </div>
+          <span class="sc-count">4 篇实用指引</span>
+        </div>
+        <ul class="sc-links">
+          <li class="sc-link-item">
+            <a href="clients.html">
+              <span>📥 全平台科学上网客户端下载与配置 (Windows/Mac/iOS/Android)</span>
+              <span class="sc-link-badge">官方正版</span>
+            </a>
+          </li>
+          <li class="sc-link-item">
+            <a href="faq.html">
+              <span>❓ 科学上网常见疑问与选购答疑 (FAQ)</span>
+              <span class="sc-link-badge">新手必读</span>
+            </a>
+          </li>
+          <li class="sc-link-item">
+            <a href="warning.html">
+              <span>🚨 机场跑路预警雷达与防坑避雷指南</span>
+              <span class="sc-link-badge">避坑防踩雷</span>
+            </a>
+          </li>
+          <li class="sc-link-item">
+            <a href="methodology.html">
+              <span>📐 机场榜量化测速方法论与评测数据标准</span>
+              <span class="sc-link-badge">客观公正</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 机场榜 · JichangBang.top · 专业的科学上网量化实测天梯榜</p>
+      <p style="margin-top: 8px; font-size: 12px; color: var(--text-dim);">
+        <a href="index.html" style="color: var(--primary);">首页</a> · 
+        <a href="ranking-fast.html">极速专线</a> · 
+        <a href="ranking-budget.html">高性价比</a> · 
+        <a href="clients.html">客户端下载</a> · 
+        <a href="sitemap.xml" style="color: #10b981;">XML 网站地图</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
