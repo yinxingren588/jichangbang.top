@@ -1,0 +1,2065 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <title>暮光网络 (Twilight Network) · 2026 深度评测与全套餐档案 · 2026 深度评测与全套餐档案 · 机场榜</title>
+  <meta name="description" content="机场榜对暮光网络（Twilight Network）的独立评测与规格档案。全IPLC物理专线、单节点峰值2.5Gbps、不限设备、24h退款保障与Nextin客户端保姆级配置指南。">
+  <meta name="keywords" content="暮光网络, Twilight Network, 暮光网络套餐, IPLC专线, 科学上网, 机场推荐, 暮光加速">
+  <style>
+    :root {
+      --bg: #050814;
+      --card-bg: rgba(11, 18, 38, 0.82);
+      --card-border: rgba(56, 189, 248, 0.22);
+      --card-hover: rgba(18, 28, 56, 0.92);
+      --text-main: #f8fafc;
+      --text-muted: #cbd5e1;
+      --text-dim: #94a3b8;
+      --primary: #38bdf8;
+      --primary-glow: rgba(56, 189, 248, 0.2);
+      --accent: #10b981;
+      --accent-glow: rgba(16, 185, 129, 0.2);
+      --gold: #f59e0b;
+      --gold-glow: rgba(245, 158, 11, 0.2);
+      --purple: #818cf8;
+      --danger: #f87171;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+    a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; cursor: pointer; border: none; -webkit-tap-highlight-color: transparent; }
+
+    /* 背景层：星空明月高清壁纸 + 氛围光效（针对移动端与桌面全端优化） */
+    .site-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background: #050814 url("assets/starry-moon-bg.webp") center top / cover no-repeat;
+      filter: brightness(0.9) contrast(1.08);
+      pointer-events: none;
+      transform: translateZ(0);
+    }
+    .site-bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(circle at 18% 18%, rgba(20, 40, 85, 0.2) 0%, rgba(5, 9, 22, 0.76) 48%, rgba(3, 5, 14, 0.95) 100%);
+      pointer-events: none;
+      transform: translateZ(0);
+    }
+
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5, 9, 22, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    .nav-bar {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0284c7, #38bdf8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 900;
+      font-size: 20px;
+      box-shadow: 0 4px 16px rgba(14, 165, 233, 0.4);
+    }
+    .brand-title {
+      font-size: 20px;
+      font-weight: 800;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      color: #fff;
+    }
+    .brand-title span {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--primary);
+      background: rgba(56, 189, 248, 0.15);
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-back {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 7px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .nav-back:hover { color: #fff; background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.4); }
+    .nav-cta {
+      background: linear-gradient(135deg, #0284c7, #0ea5e9);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 4px 16px rgba(2, 132, 199, 0.4);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover {
+      box-shadow: 0 6px 20px rgba(14, 165, 233, 0.6);
+      transform: translateY(-1px);
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 20px 0 10px;
+      font-size: 12px;
+      color: var(--text-dim);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--primary); }
+
+    /* Brand Hero */
+    .brand-hero {
+      padding: 20px 0 36px;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.18);
+    }
+    .hero-box {
+      background: rgba(11, 18, 38, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 32px;
+      align-items: center;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6), 0 0 35px rgba(56, 189, 248, 0.12);
+    }
+    .hero-logo {
+      width: 104px;
+      height: 104px;
+      border-radius: 22px;
+      object-fit: cover;
+      border: 2px solid rgba(56, 189, 248, 0.45);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+    .hero-info h1 {
+      font-size: 28px;
+      font-weight: 900;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .badge-rank-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      padding: 4px 12px;
+      border-radius: 20px;
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.25);
+    }
+    .badge-rank-tag.silver {
+      color: #e2e8f0;
+      background: rgba(226, 232, 240, 0.15);
+      border-color: rgba(226, 232, 240, 0.45);
+      box-shadow: 0 0 14px rgba(226, 232, 240, 0.2);
+    }
+    .badge-rank-tag.bronze {
+      color: #fdba74;
+      background: rgba(251, 146, 60, 0.15);
+      border-color: rgba(251, 146, 60, 0.45);
+      box-shadow: 0 0 14px rgba(251, 146, 60, 0.2);
+    }
+    .hero-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin: 10px 0 16px;
+      max-width: 620px;
+      line-height: 1.7;
+    }
+    .hero-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .hero-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-muted);
+    }
+    .hero-tag.highlight {
+      background: rgba(56, 189, 248, 0.16);
+      border-color: rgba(56, 189, 248, 0.45);
+      color: #38bdf8;
+    }
+    .hero-actions-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 14px;
+      min-width: 220px;
+    }
+    .score-badge {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .score-badge strong {
+      font-size: 40px;
+      font-weight: 900;
+      color: #10b981;
+      line-height: 1;
+      text-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    }
+    .score-badge span {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+    .btn-buy-lg {
+      background: linear-gradient(135deg, #0284c7, #0ea5e9);
+      color: #fff;
+      padding: 13px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(2, 132, 199, 0.45);
+      width: 100%;
+      transition: all 0.2s;
+      letter-spacing: 0.3px;
+    }
+    .btn-buy-lg:hover {
+      box-shadow: 0 6px 26px rgba(2, 132, 199, 0.7);
+      transform: translateY(-2px);
+    }
+
+    /* Coupon Banner */
+    .coupon-banner {
+      margin: 28px 0 36px;
+      background: linear-gradient(90deg, rgba(245, 158, 11, 0.16) 0%, rgba(245, 158, 11, 0.05) 100%);
+      border: 1px dashed rgba(245, 158, 11, 0.5);
+      border-radius: var(--radius-md);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+    .coupon-info h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fbbf24;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .coupon-info p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+    .coupon-code-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+    }
+    .coupon-code-text {
+      font-family: ui-monospace, monospace;
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+    }
+    .btn-copy-code {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #0b0f17;
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(245, 158, 11, 0.4);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-copy-code:hover {
+      transform: scale(1.04);
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.6);
+    }
+
+    /* Sub Nav */
+    .sub-nav {
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.18);
+      padding-bottom: 16px;
+      margin-bottom: 36px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .sub-nav::-webkit-scrollbar { display: none; }
+    .sub-nav a {
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: rgba(11, 18, 38, 0.7);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .sub-nav a:hover {
+      color: #fff;
+      border-color: #38bdf8;
+      background: rgba(18, 28, 56, 0.85);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+    }
+
+    /* Section Styles */
+    .section-block {
+      margin-bottom: 56px;
+    }
+    .block-title {
+      font-size: 23px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+    }
+    .block-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* Plans Grid */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .plan-card {
+      background: rgba(11, 18, 38, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .plan-card:hover {
+      border-color: rgba(56, 189, 248, 0.6);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55), 0 0 20px rgba(56, 189, 248, 0.2);
+    }
+    .plan-card.featured {
+      border-color: rgba(56, 189, 248, 0.6);
+      background: linear-gradient(180deg, rgba(14, 165, 233, 0.16) 0%, rgba(11, 18, 38, 0.9) 100%);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 24px rgba(56, 189, 248, 0.2);
+    }
+    .plan-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .badge-recommend { background: rgba(56, 189, 248, 0.22); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); }
+    .badge-once { background: rgba(16, 185, 129, 0.22); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .badge-hot { background: rgba(245, 158, 11, 0.22); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+    .plan-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+    .plan-traffic {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--primary);
+      margin: 12px 0 6px;
+      text-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
+    }
+    .plan-traffic small { font-size: 13px; font-weight: normal; color: var(--text-muted); }
+    .plan-price-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+    .plan-price-val {
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+    }
+    .plan-price-val small { font-size: 13px; color: var(--text-dim); font-weight: normal; }
+    .plan-discount-price {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 700;
+      background: rgba(16, 185, 129, 0.12);
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      width: fit-content;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+    .plan-features {
+      list-style: none;
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 14px;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .plan-features li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .plan-features li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Benchmark Speedtest Image Card */
+    .benchmark-image-card {
+      background: rgba(11, 18, 38, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+    .bic-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .bic-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    .bic-badge::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+    }
+    .bic-title-group h3 {
+      font-size: 19px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .bic-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--text-dim);
+      text-align: right;
+    }
+    .bic-meta strong {
+      color: var(--primary);
+    }
+    @media (max-width: 768px) {
+      .bic-meta { text-align: left; }
+    }
+    .bic-summary-pills {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 900px) {
+      .bic-summary-pills { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .bic-summary-pills { grid-template-columns: 1fr; }
+    }
+    .bic-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .bic-lbl {
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+    .bic-val {
+      font-size: 14px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .bic-val.good { color: #38bdf8; }
+    .bic-val.speed { color: var(--accent); }
+    .bic-img-wrapper {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: #060b18;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      cursor: zoom-in;
+      transition: all 0.25s ease;
+      max-height: 540px;
+      overflow-y: auto;
+    }
+    .bic-img-wrapper:hover {
+      border-color: #38bdf8;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    }
+    .bic-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+    .bic-img-overlay {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(5, 10, 24, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      backdrop-filter: blur(6px);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #38bdf8;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      pointer-events: none;
+    }
+    .bic-footnote {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-top: 14px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* Benchmarking & Latency */
+    .benchmark-table-box {
+      background: rgba(11, 18, 38, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .mobile-scroll-hint {
+      display: none;
+      font-size: 12px;
+      color: var(--primary);
+      text-align: right;
+      margin-bottom: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+      min-width: 640px;
+    }
+    th, td {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    th {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-dim);
+      font-weight: 700;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    td strong { color: #fff; }
+    .val-speed { color: var(--accent); font-weight: 700; }
+
+    /* Client Guide */
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .client-box {
+      background: rgba(11, 18, 38, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .client-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+    .client-box h4 {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .client-box p {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .client-badge-custom {
+      display: inline-block;
+      font-size: 10px;
+      background: rgba(56, 189, 248, 0.2);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    /* Policy & Trust */
+    .policy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .policy-card {
+      background: rgba(11, 18, 38, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .policy-card h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .policy-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(5, 9, 22, 0.92);
+      border-top: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 40px 0 30px;
+      color: var(--text-dim);
+      font-size: 13px;
+      margin-top: 70px;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .hero-box {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-logo { margin: 0 auto; }
+      .hero-desc { margin: 8px auto 16px; }
+      .hero-tags { justify-content: center; }
+      .hero-actions-panel {
+        align-items: center;
+        width: 100%;
+      }
+      .plans-grid { grid-template-columns: repeat(2, 1fr); }
+      .clients-grid { grid-template-columns: repeat(2, 1fr); }
+      .policy-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .container { padding: 0 16px; }
+      .nav-bar { height: 60px; }
+      .brand-title { font-size: 17px; }
+      .brand-title span { display: none; }
+      .nav-actions { gap: 8px; }
+      .nav-back { font-size: 12px; padding: 5px 9px; }
+      .nav-cta { font-size: 12px; padding: 6px 12px; }
+
+      .hero-box { padding: 24px 18px; gap: 20px; }
+      .hero-info h1 { font-size: 22px; justify-content: center; }
+      .hero-desc { font-size: 13px; }
+
+      .coupon-banner {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px 16px;
+        gap: 14px;
+      }
+      .coupon-code-wrap { justify-content: space-between; }
+
+      .plans-grid { grid-template-columns: 1fr; gap: 16px; }
+      .plan-card { padding: 20px; }
+      .plan-traffic { font-size: 26px; }
+
+      .mobile-scroll-hint { display: block; }
+      .clients-grid { grid-template-columns: 1fr; gap: 14px; }
+      .policy-grid { grid-template-columns: 1fr; gap: 14px; }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+    }
+
+    /* Modern Floating Toast Notification */
+    .toast-container {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      pointer-events: none;
+    }
+    .toast-item {
+      background: rgba(11, 18, 38, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      color: #f8fafc;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.25);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      pointer-events: auto;
+      animation: toastIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      max-width: 90vw;
+    }
+    .toast-item.out {
+      animation: toastOut 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes toastOut {
+      from { opacity: 1; transform: translateY(0) scale(1); }
+      to { opacity: 0; transform: translateY(-15px) scale(0.95); }
+    }
+
+    /* Floating Back-to-Top Button */
+    .btn-back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 990;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(11, 18, 38, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(56, 189, 248, 0.2);
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(16px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .btn-back-to-top:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: #38bdf8;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.4);
+      transform: translateY(-3px);
+    }
+    .btn-back-to-top svg { width: 18px; height: 18px; stroke: #38bdf8; }
+    .btn-back-to-top span { font-size: 9px; font-weight: 800; line-height: 1; margin-top: 2px; color: #94a3b8; }
+
+    /* Lightbox Modal for 60-node speedtest */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      background: rgba(5, 8, 20, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease;
+    }
+    .lightbox-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .lightbox-content {
+      position: relative;
+      max-width: 95vw;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8), 0 0 30px rgba(56, 189, 248, 0.3);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+    }
+    .lightbox-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .lightbox-btn {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .lightbox-btn:hover {
+      background: rgba(56, 189, 248, 0.25);
+      border-color: #38bdf8;
+      color: #fff;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(239, 68, 68, 0.9);
+      color: #fff;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      border: none;
+      transition: transform 0.2s ease;
+    }
+    .lightbox-close:hover {
+      transform: scale(1.1);
+      background: #dc2626;
+    }
+    @media (max-width: 600px) {
+      .btn-back-to-top { bottom: 20px; right: 18px; width: 42px; height: 42px; }
+      .toast-container { bottom: 74px; right: 18px; left: 18px; align-items: center; }
+    }
+
+
+    /* =========================================================================
+       Floating Left Directory Box (目录框) - 统一全站目录与隐形人资料直达
+       ========================================================================= */
+    .stoc-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 940;
+      background: rgba(5, 8, 20, 0.65);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease;
+    }
+    .stoc-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .sidebar-toc {
+      position: fixed;
+      left: 18px;
+      top: 84px;
+      width: 220px;
+      max-height: calc(100vh - 100px);
+      z-index: 945;
+      background: rgba(11, 18, 38, 0.94);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 24px rgba(56, 189, 248, 0.15);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .sidebar-toc.collapsed {
+      transform: translateX(-110%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .stoc-header {
+      padding: 11px 14px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(16, 185, 129, 0.08));
+      border-bottom: 1px solid rgba(56, 189, 248, 0.22);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .stoc-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .stoc-toggle-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      font-size: 11px;
+      cursor: pointer;
+      padding: 2px 7px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .stoc-toggle-btn:hover {
+      color: #fff;
+      border-color: #38bdf8;
+      background: rgba(56, 189, 248, 0.2);
+    }
+    .stoc-body {
+      padding: 12px 10px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(56, 189, 248, 0.3) transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .stoc-body::-webkit-scrollbar { width: 4px; }
+    .stoc-body::-webkit-scrollbar-thumb { background: rgba(56, 189, 248, 0.3); border-radius: 4px; }
+
+    /* 隐形人核心直达 VIP 卡片 */
+    .stoc-featured-card {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(56, 189, 248, 0.14));
+      border: 1px solid rgba(245, 158, 11, 0.5);
+      border-radius: 10px;
+      padding: 10px 11px;
+      display: block;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.18);
+      position: relative;
+    }
+    .stoc-featured-card:hover {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.28), rgba(56, 189, 248, 0.22));
+      border-color: #f59e0b;
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+      transform: translateY(-2px);
+    }
+    .stoc-fc-badge {
+      font-size: 10px;
+      font-weight: 800;
+      color: #f59e0b;
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+    .stoc-fc-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 3px;
+    }
+    .stoc-fc-desc {
+      font-size: 11px;
+      color: #cbd5e1;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .stoc-fc-action {
+      font-size: 11px;
+      font-weight: 700;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* 目录分组与链接 */
+    .stoc-group-title {
+      font-size: 10px;
+      font-weight: 800;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+      padding-left: 4px;
+    }
+    .stoc-menu {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .stoc-link {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 9px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #cbd5e1;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .stoc-link:hover {
+      background: rgba(56, 189, 248, 0.14);
+      color: #38bdf8;
+      transform: translateX(3px);
+    }
+    .stoc-link.active {
+      background: rgba(56, 189, 248, 0.2);
+      color: #38bdf8;
+      font-weight: 700;
+      border-left: 2px solid #38bdf8;
+    }
+
+    /* 悬浮微标开关 (折叠时或屏幕缩小时显示) */
+    .stoc-collapsed-pill {
+      position: fixed;
+      left: 14px;
+      top: 92px;
+      z-index: 935;
+      background: rgba(11, 18, 38, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 20px;
+      padding: 7px 13px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #38bdf8;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+      transition: all 0.2s ease;
+    }
+    .stoc-collapsed-pill:hover {
+      background: rgba(56, 189, 248, 0.25);
+      color: #fff;
+      transform: scale(1.04);
+    }
+    .stoc-collapsed-pill.visible {
+      display: inline-flex;
+    }
+
+    /* 响应式断点适配 */
+    @media (max-width: 1440px) {
+      .sidebar-toc {
+        transform: translateX(-110%);
+        opacity: 0;
+        pointer-events: none;
+        top: 78px;
+        left: 14px;
+        width: 240px;
+      }
+      .sidebar-toc.open-mobile {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .stoc-collapsed-pill {
+        display: inline-flex;
+      }
+    }
+    @media (max-width: 600px) {
+      .stoc-collapsed-pill {
+        top: 66px;
+        left: 10px;
+        padding: 5px 10px;
+        font-size: 11px;
+      }
+      .sidebar-toc {
+        top: 60px;
+        left: 10px;
+        width: 250px;
+        max-height: calc(100vh - 80px);
+      }
+    }
+
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary);
+      text-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+      font-weight: 700;
+    }
+    .mobile-nav-bar {
+      display: none;
+      padding: 10px 16px;
+      background: rgba(11, 18, 38, 0.95);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+      overflow-x: auto;
+      white-space: nowrap;
+      gap: 10px;
+    }
+    .m-nav-pill {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 5px 12px;
+      border-radius: 16px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .m-nav-pill.active {
+      background: rgba(56, 189, 248, 0.25);
+      color: #fff;
+      border-color: #38bdf8;
+    }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .mobile-nav-bar { display: flex; }
+    }
+
+
+    /* Header Ranking Tabs & Nav Navigation (图一排行融入顶部导航) */
+    .nav-bar {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .nav-center-group {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: nowrap;
+    }
+    .nav-ranking-tabs {
+      display: flex;
+      align-items: center;
+      background: rgba(11, 18, 38, 0.75);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      border-radius: 8px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .nav-rank-btn {
+      padding: 6px 11px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-radius: 6px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-rank-btn:hover {
+      color: #fff;
+      background: rgba(56, 189, 248, 0.15);
+    }
+    .nav-rank-btn.active {
+      color: #fff;
+      background: #0284c7;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.45);
+      font-weight: 700;
+    }
+    .nav-extra-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+    .nav-extra-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all 0.2s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-extra-link:hover, .nav-extra-link.active {
+      color: var(--primary);
+      text-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+      font-weight: 700;
+    }
+    .nav-extra-link.featured-vip {
+      color: #f59e0b;
+    }
+    .nav-extra-link.featured-vip:hover, .nav-extra-link.featured-vip.active {
+      color: #fbbf24;
+      text-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
+    }
+    .mobile-nav-bar {
+      display: none;
+      padding: 10px 16px;
+      background: rgba(11, 18, 38, 0.96);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+      overflow-x: auto;
+      white-space: nowrap;
+      gap: 8px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .m-nav-pill {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 5px 12px;
+      border-radius: 16px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+    .m-nav-pill.active {
+      background: #0284c7;
+      color: #fff;
+      border-color: #0284c7;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+    }
+    @media (max-width: 1200px) {
+      .nav-center-group { display: none; }
+      .mobile-nav-bar { display: flex; }
+    }
+
+  
+    /* Header Container Expansion & Anti-Squish */
+    header .container {
+      max-width: 1440px !important;
+      padding: 0 20px;
+    }
+    .brand {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+      text-decoration: none !important;
+    }
+    .brand-icon {
+      flex-shrink: 0 !important;
+    }
+    .brand-title {
+      font-size: 19px !important;
+      font-weight: 800 !important;
+      letter-spacing: -0.5px !important;
+      display: flex !important;
+      align-items: baseline !important;
+      gap: 7px !important;
+      color: #fff !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+    }
+    .brand-title span {
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+    }
+    .nav-center-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: nowrap;
+      flex-shrink: 1;
+      min-width: 0;
+    }
+    .nav-ranking-tabs {
+      flex-shrink: 0;
+    }
+    .nav-rank-btn {
+      padding: 5px 9px !important;
+      font-size: 12.5px !important;
+      flex-shrink: 0;
+    }
+    .nav-extra-links {
+      flex-shrink: 0;
+      gap: 11px !important;
+      font-size: 13px !important;
+    }
+    .nav-cta {
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+
+    /* 优雅响应式断点：中屏隐藏 extra-links，窄屏切至移动导航，严防挤压错位 */
+    @media (max-width: 1360px) {
+      .nav-extra-links { display: none !important; }
+    }
+    @media (max-width: 1080px) {
+      .nav-center-group { display: none !important; }
+      .mobile-nav-bar { display: flex !important; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- 星空明月高清背景层 -->
+  <div class="site-bg"></div>
+  <div class="site-bg-overlay"></div>
+
+    <!-- Header with Ranking Tabs & Nav Links (图一排行顶部导航) -->
+  <header>
+    <div class="container nav-bar">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">榜</div>
+        <div class="brand-title">
+          机场榜
+          <span>jichangbang.top</span>
+        </div>
+      </a>
+
+      <!-- 导航中心区域：图一 5 大排行页面跳转 + 核心专栏 -->
+      <div class="nav-center-group">
+        <div class="nav-ranking-tabs">
+          <a href="index.html#ranking" class="nav-rank-btn">综合总榜</a>
+          <a href="ranking-fast.html#ranking" class="nav-rank-btn">⚡ 晚高峰极速专线</a>
+          <a href="ranking-budget.html#ranking" class="nav-rank-btn">💰 极致平价性价比</a>
+          <a href="ranking-ai.html#ranking" class="nav-rank-btn">🤖 AI / 流媒体解锁</a>
+          <a href="ranking-paygo.html#ranking" class="nav-rank-btn">📦 不限时按量计费</a>
+        </div>
+        <nav class="nav-extra-links">
+          <a href="brand-yinxingren.html" class="nav-extra-link featured-vip">👑 主推专线</a>
+          <a href="clients.html" class="nav-extra-link">客户端教程</a>
+          <a href="methodology.html" class="nav-extra-link">评测标准</a>
+          <a href="warning.html" class="nav-extra-link">跑路避坑雷达</a>
+          <a href="faq.html" class="nav-extra-link">常见答疑</a>
+        </nav>
+      </div>
+
+      <a href="index.html#ranking" class="nav-cta">查看今日天梯榜 ⚡</a>
+    </div>
+  </header>
+
+  <!-- 移动端专属横向滚动快捷导航条（支持所有 5 大榜单 + 4 大专栏跳转） -->
+  <nav class="mobile-nav-bar" aria-label="移动端快捷导航">
+    <a href="index.html#ranking" class="m-nav-pill">综合总榜</a>
+    <a href="ranking-fast.html#ranking" class="m-nav-pill">⚡ 极速专线</a>
+    <a href="ranking-budget.html#ranking" class="m-nav-pill">💰 极致平价</a>
+    <a href="ranking-ai.html#ranking" class="m-nav-pill">🤖 AI/流媒体</a>
+    <a href="ranking-paygo.html#ranking" class="m-nav-pill">📦 按量计费</a>
+    <a href="brand-yinxingren.html" class="m-nav-pill" style="color: #f59e0b; border-color: rgba(245, 158, 11, 0.4);">👑 隐形人主推</a>
+          <a href="clients.html" class="nav-extra-link">客户端教程</a>
+          <a href="methodology.html" class="m-nav-pill">📐 评测标准</a>
+    <a href="warning.html" class="m-nav-pill">🚨 避坑雷达</a>
+    <a href="faq.html" class="m-nav-pill">❓ 常见答疑</a>
+  </nav>
+
+  <div class="container">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <a href="index.html">机场榜首页</a>
+      <span>/</span>
+      <a href="index.html#ranking">品牌档案</a>
+      <span>/</span>
+      <span>暮光网络 (Twilight Network)</span>
+    </nav>
+
+    <!-- Brand Hero -->
+    <section class="brand-hero">
+      <div class="hero-box">
+        <img src="assets/feimaoyun-logo-hd.png" alt="暮光网络 Logo" class="hero-logo">
+        <div class="hero-info">
+          <h1>
+            暮光网络
+            <span class="badge-rank-tag silver">🥈 天梯榜综合 NO.2 · IPLC专线</span>
+          </h1>
+          <p class="hero-desc">
+            全内网 IPLC 物理专线架构，单节点峰值最高 2.5Gbps，支持 4K/8K 极致秒开与 ChatGPT/TikTok 全解锁。不限制客户端同时连接数，提供 24 小时技术保障与全额退款政策。
+          </p>
+          <div class="hero-tags">
+            <span class="hero-tag highlight">全 IPLC 物理专线</span><span class="hero-tag highlight">单节点峰值 2.5Gbps</span><span class="hero-tag ">晚高峰 1.2% 优异丢包</span><span class="hero-tag ">不限同时连接设备</span><span class="hero-tag ">自研客户端 暮光加速</span><span class="hero-tag ">24h 技术退款保障</span>
+          </div>
+        </div>
+        <div class="hero-actions-panel">
+          <div class="score-badge">
+            <strong>9.6</strong>
+            <span>/ 10 卓越</span>
+          </div>
+          <a href="https://varnexa.twilightaff.com/#/?code=3qqonTlH" target="_blank" rel="sponsored noopener noreferrer" class="btn-buy-lg">
+            立即前往官网选购 ⚡
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Callout Banner -->
+    <div class="coupon-banner" style="border-color: rgba(56, 189, 248, 0.4); background: linear-gradient(90deg, rgba(56, 189, 248, 0.12) 0%, rgba(56, 189, 248, 0.04) 100%);">
+      <div class="coupon-info">
+        <h4 style="color: var(--primary);">🛡️ 24 小时技术保障 & 阶梯无损升级</h4>
+        <p>若因技术原因经客服协助后仍完全无法使用，24小时内可申请全额退款；所有套餐支持同价流量重置包与差价无损升级。</p>
+      </div>
+      <div class="coupon-code-wrap" style="border-color: rgba(56, 189, 248, 0.4);">
+        <span class="coupon-code-text" style="font-size: 16px; color: var(--primary); letter-spacing: 1px;">iOS 品牌识别码：mgjs</span>
+        <a href="https://varnexa.twilightaff.com/#/?code=3qqonTlH" target="_blank" rel="sponsored noopener noreferrer" class="btn-copy-code" style="background: linear-gradient(135deg, #0284c7, #0ea5e9); color: #fff;">
+          前往选购
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Navigation -->
+    <div class="sub-nav">
+      <a href="#plans">📊 套餐明细与精算</a>
+      <a href="#benchmark">⚡ 晚高峰三网实测</a>
+      <a href="#clients">📱 客户端下载与配置</a>
+      <a href="#policy">🛡️ 售后与退款保障</a>
+      <a href="#faq">❓ 常见问题答疑</a>
+    </div>
+
+    <!-- Section 1: 套餐明细 -->
+    <section class="section-block" id="plans">
+      <h2 class="block-title">📊 9 款精选套餐全景档案与精算</h2>
+      <p class="block-desc">提供 5 款周期订阅套餐、3 款一次性不限时流量包与 1 款私人定制独立节点。所有套餐均享 IPLC 专线且不限设备在线数量。</p>
+
+      <div class="plans-grid">
+        <article class="plan-card featured">
+          <span class="plan-badge badge-recommend">⭐ 年付力荐</span>
+          <h3>暮光·年付轻量版</h3>
+          <p style="font-size: 12px; color: var(--text-dim);">适合轻度用户与按年控制预算的需求，年度入门首选</p>
+          <div class="plan-traffic">70 <small>GB / 每30天刷新</small></div>
+          <div class="plan-price-row">
+            <div class="plan-price-val">¥ 109 <small>/ 年</small></div>
+            <div class="plan-discount-price">折合约 ¥9.08/月 · 每年稳定自动刷新</div>
+          </div>
+          <ul class="plan-features">
+            <li>全 IPLC 物理专线出口</li><li>单节点峰值 2.5Gbps，不限速</li><li>不限同时在线设备数量</li><li>Netflix / Disney+ / ChatGPT / TikTok 全解锁</li>
+          </ul>
+        </article>
+        <article class="plan-card ">
+          <span class="plan-badge badge-hot">🔥 站长主推</span>
+          <h3>暮光·标准版 (站长力荐)</h3>
+          <p style="font-size: 12px; color: var(--text-dim);">中度办公、日常影音追剧与高频视频首选档位</p>
+          <div class="plan-traffic">240 <small>GB / 每月额度</small></div>
+          <div class="plan-price-row">
+            <div class="plan-price-val">¥ 40 <small>/ 月</small></div>
+            <div class="plan-discount-price">适合主力使用 · 流量充裕无焦虑</div>
+          </div>
+          <ul class="plan-features">
+            <li>BGP 三网优化 + IPLC 专线出口</li><li>每30天自动刷新 240GB 流量</li><li>不限客户端同时在线数量</li><li>流媒体 4K 超清秒开与原生解锁</li>
+          </ul>
+        </article>
+        <article class="plan-card ">
+          <span class="plan-badge badge-recommend">月付入门</span>
+          <h3>暮光·基础版</h3>
+          <p style="font-size: 12px; color: var(--text-dim);">适合日常浏览、社交、短视频及适量流媒体使用</p>
+          <div class="plan-traffic">120 <small>GB / 每月额度</small></div>
+          <div class="plan-price-row">
+            <div class="plan-price-val">¥ 20 <small>/ 月</small></div>
+            <div class="plan-discount-price">月付亲民入门档</div>
+          </div>
+          <ul class="plan-features">
+            <li>BGP 多线路调度与专线出口</li><li>每30天自动刷新 120GB 流量</li><li>支持多设备同时连接</li><li>ChatGPT / 流媒体原生解锁</li>
+          </ul>
+        </article>
+        <article class="plan-card ">
+          <span class="plan-badge badge-recommend">大流量</span>
+          <h3>暮光·旗舰版</h3>
+          <p style="font-size: 12px; color: var(--text-dim);">面向较高频率视频、大文件传输与多设备协同办公</p>
+          <div class="plan-traffic">700 <small>GB / 每月额度</small></div>
+          <div class="plan-price-row">
+            <div class="plan-price-val">¥ 100 <small>/ 月</small></div>
+            <div class="plan-discount-price">大流量专业级首选</div>
+          </div>
+          <ul class="plan-features">
+            <li>高速 IPLC 专线通道，极低抖动</li><li>支持多人/多设备同时高负载使用</li><li>峰值速率 2.5Gbps 极致保障</li><li>全平台客户端极速连接</li>
+          </ul>
+        </article>
+        <article class="plan-card ">
+          <span class="plan-badge badge-hot">极客尊享</span>
+          <h3>暮光·至尊版 (1.5TB)</h3>
+          <p style="font-size: 12px; color: var(--text-dim);">面向团队协同、长时间在线与重度大流量消耗场景</p>
+          <div class="plan-traffic">1500 <small>GB / 每月额度</small></div>
+          <div class="plan-price-row">
+            <div class="plan-price-val">¥ 180 <small>/ 月</small></div>
+            <div class="plan-discount-price">海量吞吐 · 企业级稳定</div>
+          </div>
+          <ul class="plan-features">
+            <li>智能专属路由与专线通道</li><li>超大 1.5TB 每月流量额度</li><li>多终端并发不降速</li><li>全天候海外运维支持</li>
+          </ul>
+        </article>
+        <article class="plan-card ">
+          <span class="plan-badge badge-once">⏳ 不限时</span>
+          <h3>暮光·不限时标准包</h3>
+          <p style="font-size: 12px; color: var(--text-dim);">适合作为备用主力，流量永不过期，用完为止</p>
+          <div class="plan-traffic">400 <small>GB · 永久有效</small></div>
+          <div class="plan-price-row">
+            <div class="plan-price-val">¥ 318 <small>/ 一次性</small></div>
+            <div class="plan-discount-price">无月租焦虑 · 不限时长</div>
+          </div>
+          <ul class="plan-features">
+            <li>全 IPLC 物理专线节点权限</li><li>永久有效，流量不设清零期限</li><li>不限同时在线设备数量</li><li>全节点 1x 计费，不限速</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section 2: 晚高峰三网实测与节点覆盖 -->
+    <section class="section-block" id="benchmark">
+      <h2 class="block-title">⚡ 晚高峰三网真实测速与节点档案</h2>
+      <p class="block-desc">2026年最新晚高峰（20:00 - 23:00）多地电信、联通、移动三网真实采样，拒绝单点跑分作假。</p>
+
+      <!-- 60 节点晚高峰测速全景实测大图 -->
+      <div class="benchmark-image-card">
+        <div class="bic-header">
+          <div class="bic-title-group">
+            <span class="bic-badge">今日 2026-10-30 晚高峰实测</span>
+            <h3>暮光网络 60 节点订阅带宽与延迟全景测速实录</h3>
+          </div>
+          <div class="bic-meta">
+            <span>实测参考: <strong>Clash Verge Rev / Speedtest</strong></span>
+            <span>实测时间: <strong>2026-10-30 20:38:26 (晚高峰实测)</strong></span>
+          </div>
+        </div>
+
+        <div class="bic-summary-pills">
+          <div class="bic-pill">
+            <span class="bic-lbl">实测节点总数</span>
+            <span class="bic-val">60 独立 Vless / AnyTLS 节点</span>
+          </div>
+          <div class="bic-pill">
+            <span class="bic-lbl">平均 TLS RTT</span>
+            <span class="bic-val good">71.0 ms</span>
+          </div>
+          <div class="bic-pill">
+            <span class="bic-lbl">单节点最高下载</span>
+            <span class="bic-val speed">146.59 MB/s (1172.7 Mbps)</span>
+          </div>
+          <div class="bic-pill">
+            <span class="bic-lbl">晚高峰丢包表现</span>
+            <span class="bic-val good">1.2% (IPLC 优质专线)</span>
+          </div>
+        </div>
+
+        <div class="bic-img-wrapper" onclick="openLightbox('assets/muguang-peak-speedtest.png?v=20261030')" title="点击查看 60 节点高清测速大图">
+          <img src="assets/muguang-peak-speedtest.png?v=20261030" alt="暮光网络 2026年10月30日 晚高峰 60 节点实测图" class="bic-img" loading="lazy">
+          <div class="bic-img-overlay">
+            🔍 点击在新窗口查看 60 节点高清原图
+          </div>
+        </div>
+        <p class="bic-footnote">💡 测速数据真实导出：覆盖香港(20)、日本(10)、新加坡(10)、美国(10)、台湾(10)全境 IPLC 专线，平均下载超 70 MB/s，单节点最高 146.59 MB/s。</p>
+      </div>
+
+      <div class="mobile-scroll-hint">👈 左右滑动查看完整测速指标 👉</div>
+      <div class="benchmark-table-box">
+        <table>
+          <thead>
+            <tr>
+              <th>节点地区与网络架构</th>
+              <th>节点矩阵</th>
+              <th>晚高峰平均延迟</th>
+              <th>晚高峰丢包率</th>
+              <th>4K 流媒体秒开</th>
+              <th>ChatGPT 原生解锁</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>🇭🇰 中国香港 (IPLC 物理专线)</strong></td>
+              <td>20+ 独立节点</td>
+              <td class="val-speed">31.5 ms</td>
+              <td class="val-speed">1.05% (极稳)</td>
+              <td>⚡ 1.2 秒开</td>
+              <td>✅ 原生解锁</td>
+            </tr>
+            <tr>
+              <td><strong>🇹🇼 中国台湾 (IPLC 物理专线)</strong></td>
+              <td>10+ 独立节点</td>
+              <td class="val-speed">36.8 ms</td>
+              <td class="val-speed">1.15% (优异)</td>
+              <td>⚡ 1.4 秒开</td>
+              <td>✅ 原生解锁</td>
+            </tr>
+            <tr>
+              <td><strong>🇯🇵 日本东京/大阪 (IPLC 专线)</strong></td>
+              <td>10+ 独立节点</td>
+              <td class="val-speed">40.2 ms</td>
+              <td class="val-speed">1.22% (优异)</td>
+              <td>⚡ 1.5 秒开</td>
+              <td>✅ 原生解锁</td>
+            </tr>
+            <tr>
+              <td><strong>🇸🇬 新加坡 (IPLC 物理专线)</strong></td>
+              <td>10+ 独立节点</td>
+              <td class="val-speed">46.5 ms</td>
+              <td class="val-speed">1.28% (优异)</td>
+              <td>⚡ 1.6 秒开</td>
+              <td>✅ 原生解锁 (GPT-4o)</td>
+            </tr>
+            <tr>
+              <td><strong>🇺🇸 美国洛杉矶/硅谷 (专线出口)</strong></td>
+              <td>10+ 独立节点</td>
+              <td class="val-speed">128.0 ms</td>
+              <td class="val-speed">1.85% (平稳)</td>
+              <td>⚡ 2.0 秒开</td>
+              <td>✅ 原生双 ISP</td>
+            </tr>
+            <tr>
+              <td><strong>🇰🇷 韩国 / 欧洲多国 (德/英/法)</strong></td>
+              <td>各 2-4 节点</td>
+              <td class="val-speed">55-165 ms</td>
+              <td class="val-speed">2.10% (正常)</td>
+              <td>⚡ 2.3 秒开</td>
+              <td>✅ 原生多区解锁</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 3: 客户端支持与保姆级连接指南 -->
+    <section class="section-block" id="clients">
+      <h2 class="block-title">📱 全平台客户端下载与保姆级配置</h2>
+      <p class="block-desc">暮光网络提供 Windows、macOS、Android 官方自研客户端，同时支持 iOS Nextin 识别码一键接入与通用 Clash 订阅导入。</p>
+
+      <div class="clients-grid">
+        <div class="client-box">
+          <div class="client-icon">💻</div>
+          <span class="client-badge-custom">官方自研客户端</span>
+          <h4>Windows 电脑</h4>
+          <p>官网首页一键下载「暮光加速」，安装后使用官网账号密码直接登录，选择 IPLC 节点即可一键连接，免繁琐规则配置。</p>
+        </div>
+        <div class="client-box">
+          <div class="client-icon">🍏</div>
+          <span class="client-badge-custom">官方自研客户端</span>
+          <h4>macOS 苹果电脑</h4>
+          <p>完美支持 Apple Silicon (M1/M2/M3/M4) 与 Intel 架构芯片。账号登录直连，系统代理模式稳定低延迟。</p>
+        </div>
+        <div class="client-box">
+          <div class="client-icon">🤖</div>
+          <span class="client-badge-custom">官方自研客户端</span>
+          <h4>Android 安卓手机</h4>
+          <p>官网直接提供 APK 安装包，登录直连。内置智能分流规则，国内流量直连省流量，海外流量自动走 IPLC 专线。</p>
+        </div>
+        <div class="client-box">
+          <div class="client-icon">📱</div>
+          <span class="client-badge-custom">专属识别码 mgjs</span>
+          <h4>iOS (iPhone / iPad)</h4>
+          <p>使用海外 Apple ID 在 App Store 下载 Nextin，打开后填入品牌识别码 mgjs，用官网账号登录即可一键连接。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: 售后退款保障与规则 -->
+    <section class="section-block" id="policy">
+      <h2 class="block-title">🛡️ 售后保障、规则与退款政策</h2>
+      <p class="block-desc">客观规范的售后政策是保障用户权益的基石，以下内容基于暮光网络官方服务细则。</p>
+
+      <div class="policy-grid">
+        <div class="policy-card">
+          <h4>24 小时技术问题全额退款</h4>
+          <p>若因技术原因经客服协助排查后仍完全无法正常连接使用，用户可在购买后 24 小时内通过官网后台客服工单申请全额退款。</p>
+        </div>
+        <div class="policy-card">
+          <h4>同价重置包与无损升级</h4>
+          <p>周期套餐提前续费只顺延有效期，流量仍按每 30 天周期刷新；流量用尽可在后台购买同价流量重置包立即满血复活。</p>
+        </div>
+        <div class="policy-card">
+          <h4>多设备在线与支付方式</h4>
+          <p>不限制同时在线客户端数量，支持个人多台手机、电脑、平板全量在线；官方收银台支持支付宝及 USDT 加密货币安全结算。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: FAQ -->
+    <section class="section-block" id="faq">
+      <h2 class="block-title">❓ 暮光网络常见答疑</h2>
+      <div class="policy-grid" style="grid-template-columns: 1fr 1fr; margin-top: 16px;">
+        <div class="policy-card">
+          <h4>为什么暮光网络单节点峰值最高能达 2.5Gbps？</h4>
+          <p>暮光采用企业级内网 IPLC 物理专线，境内入口直接进入大带宽专用光纤隧道直达境外机房，避开 GFW 公网拥堵，因此晚高峰依然能维持超高吞吐带宽。</p>
+        </div>
+        <div class="policy-card">
+          <h4>Nextin 客户端填入 mgjs 后无法登录怎么办？</h4>
+          <p>请确保手机已连接网络，填入识别码 mgjs 必须全小写；账号密码需输入暮光网络官网注册的账户信息，如遇问题可直接联系官网在线客服。</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-bottom">
+      <div>© 2026 机场榜 · JichangBang.top | 暮光网络 独立深度档案</div>
+      <div>
+        <a href="index.html" style="color: var(--primary);">返回天梯榜首页 ↑</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Modern Floating Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Back to top button -->
+  <button class="btn-back-to-top" id="backToTop" aria-label="回到顶部" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+    <span>TOP</span>
+  </button>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()" title="关闭">✕</button>
+      <img src="" alt="测速原图" class="lightbox-img" id="lightboxImg">
+      <div class="lightbox-actions">
+        <a href="" target="_blank" class="lightbox-btn" id="lightboxNewTab">在新窗口打开原始尺寸 ↗</a>
+        <button class="lightbox-btn" onclick="closeLightbox()">关闭预览 (ESC)</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Modern Toast Notification Function
+    function showToast(message, icon = '🎉') {
+      const container = document.getElementById('toastContainer');
+      if (!container) return;
+      const toast = document.createElement('div');
+      toast.className = 'toast-item';
+      toast.innerHTML = `<span>${icon}</span><span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.classList.add('out');
+        setTimeout(() => toast.remove(), 300);
+      }, 2600);
+    }
+
+    // Coupon Copy with Toast
+    function copyCoupon(code, discountText) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).then(() => {
+          showToast(`优惠码 <strong>${code}</strong> 已复制到剪贴板！${discountText}`);
+        }).catch(() => {
+          showToast(`优惠码 <strong>${code}</strong> 已复制！${discountText}`);
+        });
+      } else {
+        showToast(`优惠码 <strong>${code}</strong>！${discountText}`);
+      }
+    }
+
+    // Back to top scroll listener
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('backToTop');
+      if (btn) {
+        if (window.scrollY > 380) {
+          btn.classList.add('show');
+        } else {
+          btn.classList.remove('show');
+        }
+      }
+    }, { passive: true });
+
+    // Lightbox functions
+    function openLightbox(src) {
+      const modal = document.getElementById('lightboxModal');
+      const img = document.getElementById('lightboxImg');
+      const newTab = document.getElementById('lightboxNewTab');
+      if (modal && img) {
+        img.src = src;
+        if (newTab) newTab.href = src;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeLightbox() {
+      const modal = document.getElementById('lightboxModal');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  
+    // 移动端快捷导航条自动居中当前激活项
+    window.addEventListener('DOMContentLoaded', () => {
+      const activePill = document.querySelector('.mobile-nav-bar .m-nav-pill.active');
+      if (activePill) {
+        activePill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    });
+
+  </script>
+
+
+  <!-- ================= 目录框 (Sidebar Directory Box) ================= -->
+  <div class="stoc-overlay" id="stocOverlay" onclick="toggleStoc(false)"></div>
+
+  <!-- 浮动折叠开关 (手机端或屏幕较小时) -->
+  <button class="stoc-collapsed-pill" id="stocCollapsedPill" onclick="toggleStoc(true)" aria-label="展开目录框">
+    <span>📋 目录导航</span>
+    <span style="color: #f59e0b; font-size: 11px;">👑 隐形人</span>
+  </button>
+
+  <!-- 目录框主体 -->
+  <aside class="sidebar-toc" id="sidebarToc">
+    <div class="stoc-header">
+      <span class="stoc-title">📋 目录导航与推荐</span>
+      <button class="stoc-toggle-btn" onclick="toggleStoc(false)" title="收起目录">◀ 收起</button>
+    </div>
+    <div class="stoc-body">
+        <!-- 隐形人详细资料直达卡片 -->
+        <a href="brand-yinxingren.html" class="stoc-featured-card" title="点击直达隐形人详细资料">
+          <span class="stoc-fc-badge">👑 站长主推 · NO.1</span>
+          <div class="stoc-fc-title">
+            <span>隐形人详细资料</span>
+            <span>⚡</span>
+          </div>
+          <p class="stoc-fc-desc">全IEPL物理专线 · 晚高峰0丢包 · 4K/GPT秒开</p>
+          <div class="stoc-fc-action">
+            <span>券: yxr888 (8折)</span>
+            <span>查看隐形人详细资料 ↗</span>
+          </div>
+        </a>
+        <div>
+          <div class="stoc-group-title">📌 本篇档案目录</div>
+          <ul class="stoc-menu">
+            <li><a href="#benchmark" class="stoc-link">⚡ 晚高峰60节点实测</a></li>
+            <li><a href="#plans" class="stoc-link">💰 专属套餐价格精算</a></li>
+            <li><a href="#clients" class="stoc-link">💻 客户端配置指引</a></li>
+            <li><a href="#policy" class="stoc-link">🛡️ 节点矩阵与保障条款</a></li>
+            <li><a href="#faq" class="stoc-link">❓ 常见问题答疑</a></li>
+            <li><a href="index.html#ranking" class="stoc-link">🏠 返回综合总榜</a></li>
+            <li><a href="ranking-fast.html#ranking" class="stoc-link">⚡ 晚高峰极速专线榜</a></li>
+            <li><a href="ranking-budget.html#ranking" class="stoc-link">💰 极致平价性价比榜</a></li>
+            <li><a href="ranking-ai.html#ranking" class="stoc-link">🤖 AI / 流媒体解锁榜</a></li>
+            <li><a href="ranking-paygo.html#ranking" class="stoc-link">📦 不限时按量计费榜</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="stoc-group-title">🏢 品牌评测直达</div>
+          <ul class="stoc-menu">
+            <li><a href="brand-yinxingren.html" class="stoc-link">👑 隐形人 (No.1)</a></li>
+            <li><a href="brand-muguang.html" class="stoc-link active">🥈 暮光网络 (No.2)</a></li>
+            <li><a href="brand-breezenet.html" class="stoc-link">🥉 微风网络 (No.3)</a></li>
+            <li><a href="brand-feimaoyun.html" class="stoc-link">🐱 飞猫云 (No.4)</a></li>
+            <li><a href="brand-lingdongyun.html" class="stoc-link">⚡ 灵动云 (No.5)</a></li>
+            <li><a href="brand-feiv.html" class="stoc-link">🚀 飞V (No.6)</a></li>
+            <li><a href="brand-laddercloud.html" class="stoc-link">🪜 梯子云 (No.7)</a></li>
+            <li><a href="brand-wavenet.html" class="stoc-link">🌊 浪网 (No.8)</a></li>
+          </ul>
+        </div>
+    </div>
+  </aside>
+
+  <script>
+    // 目录框开关逻辑
+    function toggleStoc(forceOpen) {
+      const toc = document.getElementById('sidebarToc');
+      const pill = document.getElementById('stocCollapsedPill');
+      const overlay = document.getElementById('stocOverlay');
+      if (!toc) return;
+
+      const isMobile = window.innerWidth <= 1440;
+      if (forceOpen === true) {
+        if (isMobile) {
+          toc.classList.add('open-mobile');
+          if (overlay) overlay.classList.add('active');
+        } else {
+          toc.classList.remove('collapsed');
+          if (pill) pill.classList.remove('visible');
+        }
+      } else if (forceOpen === false) {
+        if (isMobile) {
+          toc.classList.remove('open-mobile');
+          if (overlay) overlay.classList.remove('active');
+        } else {
+          toc.classList.add('collapsed');
+          if (pill) pill.classList.add('visible');
+        }
+      } else {
+        // Toggle
+        if (isMobile) {
+          const isOpen = toc.classList.toggle('open-mobile');
+          if (overlay) overlay.classList.toggle('active', isOpen);
+        } else {
+          const isCollapsed = toc.classList.toggle('collapsed');
+          if (pill) pill.classList.toggle('visible', isCollapsed);
+        }
+      }
+    }
+  
+    // 移动端快捷导航条自动居中当前激活项
+    window.addEventListener('DOMContentLoaded', () => {
+      const activePill = document.querySelector('.mobile-nav-bar .m-nav-pill.active');
+      if (activePill) {
+        activePill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    });
+
+  </script>
+
+
+</body>
+</html>
