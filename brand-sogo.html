@@ -593,11 +593,96 @@
     .bic-val { font-size: 14px; font-weight: 800; color: #fff; }
     .bic-val.good { color: #34d399; }
     .bic-val.speed { color: #38bdf8; }
+    .bic-img-wrapper {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: #060b18;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      cursor: zoom-in;
+      transition: all 0.25s ease;
+      max-height: 540px;
+      overflow-y: auto;
+      margin-bottom: 16px;
+    }
+    .bic-img-wrapper:hover {
+      border-color: #38bdf8;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    }
+    .bic-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+    .bic-img-overlay {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(5, 10, 24, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      backdrop-filter: blur(6px);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #e0f2fe;
+      pointer-events: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
     .bic-footnote {
       font-size: 12px;
       color: #94a3b8;
       line-height: 1.6;
     }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+    .lightbox-modal.active { display: flex; }
+    .lightbox-content {
+      position: relative;
+      max-width: 95vw;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 84vh;
+      border-radius: 8px;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+      object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -36px;
+      right: 0;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: #38bdf8; }
 
     /* FAQ */
     .faq-grid {
@@ -1179,27 +1264,34 @@
     <!-- Section 3: 晚高峰多节点测速指标 -->
     <section class="section-block" id="benchmark">
       <h2 class="block-title">⚡ 晚高峰高并发压力实测节点指标</h2>
-      <p class="block-desc">基于多省市真实宽带环境，在 20:00-23:00 晚高峰黄金时段进行的并发压测汇总：</p>
+      <p class="block-desc">基于多省市真实宽带环境，在 2026年11月3日 晚高峰黄金时段针对 Sogo云 60 组核心专线节点进行的全量压力测速汇总：</p>
       <div class="benchmark-card">
         <div class="bic-summary-pills">
           <div class="bic-pill">
             <span class="bic-lbl">实测节点总数</span>
-            <span class="bic-val">60+ 核心节点 (港20/台10/日10/新10/美10/欧亚等)</span>
+            <span class="bic-val">60 组主力专线 (港20/日10/新10/美10/台10)</span>
           </div>
           <div class="bic-pill">
-            <span class="bic-lbl">晚高峰平均延迟</span>
-            <span class="bic-val good">32.4 ms (全 IPLC 专线低延迟)</span>
+            <span class="bic-lbl">平均 TLS RTT 延迟</span>
+            <span class="bic-val good">69.1 ms (香港专线低至 21~30ms)</span>
           </div>
           <div class="bic-pill">
             <span class="bic-lbl">单节点最高速率</span>
-            <span class="bic-val speed">最高 2.5 Gbps (超千兆跑满)</span>
+            <span class="bic-val speed">159.86 MB/s (约 1279 Mbps 超千兆)</span>
           </div>
           <div class="bic-pill">
-            <span class="bic-lbl">计费与并发机制</span>
-            <span class="bic-val good">全节点 X1 倍率 · 多设备不限在线数</span>
+            <span class="bic-lbl">计费与网络协议</span>
+            <span class="bic-val good">全节点 X1 真实倍率 · UDP FullCone</span>
           </div>
         </div>
-        <p class="bic-footnote">💡 实测说明：测试覆盖香港、台湾、日本、新加坡、美国、韩国、阿根廷等主流与小众专线节点，全节点统一采用 X1 真实计费，无任何倍率偷跑，原生双向解锁流媒体与全生态 AI，晚高峰 0 丢包极度顺滑！</p>
+
+        <!-- 60 节点测速大图展示 -->
+        <div class="bic-img-wrapper" onclick="openLightbox('assets/sogo-peak-speedtest.png?v=20261103')" title="点击查看 60 节点测速大图">
+          <img src="assets/sogo-peak-speedtest.png?v=20261103" alt="Sogo云 2026年11月3日 晚高峰 60 节点实测测速图" class="bic-img" loading="lazy">
+          <div class="bic-img-overlay">🔍 点击查看 60 节点全景测速图 (最高 159.86 MB/s)</div>
+        </div>
+
+        <p class="bic-footnote">💡 实测说明：2026-11-03 19:22:35 晚高峰真实压力实测，测试节点涵盖香港 20、日本 10、新加坡 10、美国 10、台湾 10 共 60 组主力专线节点；平均 TLS RTT 为 69.1 ms（香港专线节点低至 21ms~30ms），单节点最高峰值下载速率高达 159.86 MB/s（约 1279 Mbps 超千兆跑满），协议采用 Vless 与 AnyTLS，UDP 广泛支持 FullCone，全节点统一采用 X1 真实计费无偷跑，晚高峰 0 丢包极度顺滑！</p>
       </div>
     </section>
 
@@ -1293,6 +1385,17 @@
     <span>TOP</span>
   </button>
 
+  <!-- Lightbox Modal for 60-node speedtest -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox();">
+    <div class="lightbox-content" onclick="event.stopPropagation();">
+      <button class="lightbox-close" onclick="closeLightbox();">✕</button>
+      <img src="" alt="测速大图" class="lightbox-img" id="lightboxImg">
+      <div style="margin-top: 10px; text-align: center;">
+        <a href="" target="_blank" id="lightboxNewTab" class="btn-hero-secondary" style="display: inline-block; padding: 6px 16px; font-size: 13px;">在新标签页打开原图 ↗</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Floating TOC Sidebar (Desktop) -->
   <aside class="sidebar-toc" id="sidebarToc">
     <div class="stoc-header">
@@ -1355,6 +1458,26 @@
         }
       }
     }, { passive: true });
+
+    // Lightbox functions
+    function openLightbox(src) {
+      const modal = document.getElementById('lightboxModal');
+      const img = document.getElementById('lightboxImg');
+      const newTab = document.getElementById('lightboxNewTab');
+      if (modal && img) {
+        img.src = src;
+        if (newTab) newTab.href = src;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeLightbox() {
+      const modal = document.getElementById('lightboxModal');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
 
     // Responsive TOC auto-collapse
     window.addEventListener('resize', () => {
