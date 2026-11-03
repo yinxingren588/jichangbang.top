@@ -603,6 +603,44 @@
     .bic-val { font-size: 14px; font-weight: 800; color: #fff; }
     .bic-val.good { color: #38bdf8; }
     .bic-val.speed { color: #f59e0b; }
+    .bic-img-wrapper {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      background: #060b18;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      cursor: zoom-in;
+      transition: all 0.25s ease;
+      max-height: 540px;
+      overflow-y: auto;
+      margin-bottom: 16px;
+    }
+    .bic-img-wrapper:hover {
+      border-color: #38bdf8;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    }
+    .bic-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+    .bic-img-overlay {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(5, 10, 24, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      backdrop-filter: blur(6px);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #38bdf8;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      pointer-events: none;
+    }
     .bic-footnote {
       font-size: 12px;
       color: #94a3b8;
@@ -1276,24 +1314,30 @@
 
         <div class="bic-summary-pills">
           <div class="bic-pill">
-            <span class="bic-lbl">实测节点地区</span>
-            <span class="bic-val">香港/台湾/日本/新加坡/马来/美国</span>
+            <span class="bic-lbl">实测节点总数</span>
+            <span class="bic-val">60 组主力节点 (港20/日10/新10/美10/台10)</span>
           </div>
           <div class="bic-pill">
             <span class="bic-lbl">晚高峰平均延迟</span>
-            <span class="bic-val good">47.2 ms (全 IPLC 专线低延迟)</span>
+            <span class="bic-val good">68.8 ms (全 IPLC 专线低延迟)</span>
           </div>
           <div class="bic-pill">
             <span class="bic-lbl">单节点最高速率</span>
-            <span class="bic-val speed">最高 2.5 Gbps (超千兆跑满)</span>
+            <span class="bic-val speed">163.27 MB/s (约 1306 Mbps 跑满)</span>
           </div>
           <div class="bic-pill">
-            <span class="bic-lbl">计费与设备机制</span>
-            <span class="bic-val good">全节点 X1 倍率 · 不限设备数</span>
+            <span class="bic-lbl">计费与可用性</span>
+            <span class="bic-val good">全节点 X1 倍率 · UDP FullCone</span>
           </div>
         </div>
 
-        <p class="bic-footnote">💡 测速数据真实导出：测试覆盖香港、台湾、日本、新加坡、马来西亚、美国等核心专线节点，全节点统一采用 X1 真实计费，无任何倍率放大，晚高峰 0 丢包稳定流畅。</p>
+        <!-- 60 节点测速大图展示 -->
+        <div class="bic-img-wrapper" onclick="openLightbox('assets/guangnianti-peak-speedtest.png?v=20261103')" title="点击查看 60 节点测速大图">
+          <img src="assets/guangnianti-peak-speedtest.png?v=20261103" alt="光年梯 2026年11月3日 晚高峰 60 节点实测图" class="bic-img" loading="lazy">
+          <div class="bic-img-overlay">🔍 点击查看 60 节点全景高清大图 (原图最高 163.27 MB/s)</div>
+        </div>
+
+        <p class="bic-footnote">💡 测速数据真实导出：2026-11-03 21:48:37 晚高峰实测，测试节点涵盖香港 20、日本 10、新加坡 10、美国 10、台湾 10 共 60 组主力节点；平均 TLS RTT 仅 68.8 ms，最高单节点峰值下载速率高达 163.27 MB/s（约 1306 Mbps），UDP 广泛支持 FullCone，全节点 X1 真实计费无倍率放大，晚高峰高并发极度丝滑！</p>
       </div>
 
       <div class="mobile-scroll-hint">👉 左右滑动查看完整测速指标 👈</div>
