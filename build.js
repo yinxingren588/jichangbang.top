@@ -21,14 +21,15 @@ const ignored = new Set([
   'package.json',
   'package-lock.json',
   'build.js',
-  'apply_optimizations.py'
+  'apply_optimizations.py',
+  '__pycache__'
 ]);
 
 const items = fs.readdirSync(rootDir);
 let copiedCount = 0;
 
 for (const item of items) {
-  if (ignored.has(item)) continue;
+  if (ignored.has(item) || item.endsWith('.zip')) continue;
   const src = path.join(rootDir, item);
   const dest = path.join(distDir, item);
   fs.cpSync(src, dest, { recursive: true });
