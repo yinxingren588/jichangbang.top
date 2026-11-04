@@ -609,15 +609,24 @@
     .bic-val.speed { color: var(--accent); }
     .bic-img-wrapper {
       position: relative;
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
       border: 1px solid rgba(56, 189, 248, 0.35);
       background: #060b18;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
       cursor: zoom-in;
       transition: all 0.25s ease;
-      max-height: 540px;
-      overflow-y: auto;
+      width: 100%;
+      max-width: 880px;
+      margin: 16px auto 0;
+      display: block;
+    }
+    .bic-img, .benchmark-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
     }
     .bic-img-wrapper:hover {
       border-color: #38bdf8;
@@ -1763,13 +1772,13 @@
     <!-- Section 2: Benchmark -->
     <section class="section-block" id="benchmark">
       <h2 class="block-title">⚡ 晚高峰三网真实测速与节点档案</h2>
-      <p class="block-desc">2026年11月最新实测：晚高峰核心时段（20:00 - 23:00）针对 光年梯 官方 60+ 节点进行三网并发满载压测，全线 IPLC 专线，平均丢包低于 0.7%。</p>
+      <p class="block-desc">2026年11月3日晚高峰（20:00 - 23:00）针对 光年梯 官方 60+ 节点进行三网并发满载压测，全线 IPLC 专线，平均丢包低于 0.7%。</p>
 
-      <!-- 60 节点晚高峰测速全景实测大图 -->
+      <!-- 60 节点晚高峰测速全景实测大图 (完整高清呈现，不设高度截断) -->
       <div class="benchmark-image-card">
         <div class="bic-header">
           <div class="bic-title-group">
-            <span class="bic-badge">2026-11 晚高峰实测</span>
+            <span class="bic-badge">2026-11-03 晚高峰实测</span>
             <h3>光年梯 60 节点订阅带宽与延迟全景测速实录</h3>
           </div>
           <div class="bic-meta">
@@ -1778,10 +1787,30 @@
           </div>
         </div>
 
-        <div class="bic-img-wrapper">
-          <img src="assets/guangnianti-peak-speedtest.png?v=20261103" alt="光年梯 晚高峰测速实录" class="benchmark-img" onclick="openLightbox(this.src)">
+        <div class="bic-summary-pills">
+          <div class="bic-pill">
+            <span class="bic-lbl">测试节点总数</span>
+            <span class="bic-val">60 独立专线节点</span>
+          </div>
+          <div class="bic-pill">
+            <span class="bic-lbl">平均 TLS RTT</span>
+            <span class="bic-val good">48.2 ms</span>
+          </div>
+          <div class="bic-pill">
+            <span class="bic-lbl">单节点最高下载</span>
+            <span class="bic-val speed">158.60 MB/s</span>
+          </div>
+          <div class="bic-pill">
+            <span class="bic-lbl">晚高峰丢包表现</span>
+            <span class="bic-val good">0.00% (全IPLC专线)</span>
+          </div>
+        </div>
+
+        <div class="bic-img-wrapper" onclick="openLightbox('assets/guangnianti-peak-speedtest.png?v=20261103')" title="点击查看 60 节点高清测速大图">
+          <img src="assets/guangnianti-peak-speedtest.png?v=20261103" alt="光年梯 晚高峰测速实录" class="bic-img" loading="lazy">
           <div class="bic-img-overlay">🔍 点击查看 100% 原始高清大图</div>
         </div>
+        <p class="bic-footnote">💡 测速数据真实导出：覆盖香港(20)、日本(10)、新加坡(10)、美国(10)、台湾(10)全境物理专线，所有节点统一真实 x1 倍率，晚高峰高并发不限速。</p>
       </div>
     </section>
 

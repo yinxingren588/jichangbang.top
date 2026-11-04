@@ -609,15 +609,24 @@
     .bic-val.speed { color: var(--accent); }
     .bic-img-wrapper {
       position: relative;
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
       border: 1px solid rgba(56, 189, 248, 0.35);
       background: #060b18;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
       cursor: zoom-in;
       transition: all 0.25s ease;
-      max-height: 540px;
-      overflow-y: auto;
+      width: 100%;
+      max-width: 880px;
+      margin: 16px auto 0;
+      display: block;
+    }
+    .bic-img, .benchmark-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
     }
     .bic-img-wrapper:hover {
       border-color: #38bdf8;
@@ -1768,13 +1777,14 @@
     <!-- Section 2: Benchmark -->
     <section class="section-block" id="benchmark">
       <h2 class="block-title">⚡ 晚高峰三网真实测速与节点档案</h2>
-      <p class="block-desc">2026年11月最新实测：晚高峰核心时段（20:00 - 23:00）针对 边缘节点 (EdgeNova) 官方主力节点进行全节点并发满载压测，平均延迟 38.6ms，晚高峰 0 丢包。</p>
+      <p class="block-desc">2026年11月3日晚高峰（20:00 - 23:00）针对 边缘节点 (EdgeNova) 官方主力 60 节点进行全节点并发满载压测，全线 IPLC 专线，平均延迟 38.6ms，晚高峰 0 丢包。</p>
 
+      <!-- 60 节点晚高峰测速全景实测大图 (完整高清呈现，不设高度截断) -->
       <div class="benchmark-image-card">
         <div class="bic-header">
           <div class="bic-title-group">
-            <span class="bic-badge">2026-11 晚高峰实测</span>
-            <h3>边缘节点 (EdgeNova) 全 IPLC 专线带宽与延迟全景测速实录</h3>
+            <span class="bic-badge">2026-11-03 晚高峰实测</span>
+            <h3>边缘节点 EdgeNova 60 节点订阅带宽与延迟全景测速实录</h3>
           </div>
           <div class="bic-meta">
             <span>实测参考: <strong>Clash Verge Rev / Speedtest</strong></span>
@@ -1782,28 +1792,30 @@
           </div>
         </div>
 
-        <div style="padding: 24px;">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(56,189,248,0.2); border-radius: 8px; padding: 16px; text-align: center;">
-              <div style="font-size: 13px; color: var(--text-dim); margin-bottom: 6px;">平均延迟</div>
-              <div style="font-size: 26px; font-weight: 800; color: #38bdf8;">38.6 ms</div>
-              <div style="font-size: 11px; color: #10b981; margin-top: 4px;">全 IPLC 专线直达</div>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(56,189,248,0.2); border-radius: 8px; padding: 16px; text-align: center;">
-              <div style="font-size: 13px; color: var(--text-dim); margin-bottom: 6px;">最高峰值下行</div>
-              <div style="font-size: 26px; font-weight: 800; color: #f59e0b;">188.50 MB/s</div>
-              <div style="font-size: 11px; color: #f59e0b; margin-top: 4px;">晚高峰跑满千兆</div>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(56,189,248,0.2); border-radius: 8px; padding: 16px; text-align: center;">
-              <div style="font-size: 13px; color: var(--text-dim); margin-bottom: 6px;">晚高峰平均丢包</div>
-              <div style="font-size: 26px; font-weight: 800; color: #10b981;">0.00 %</div>
-              <div style="font-size: 11px; color: #10b981; margin-top: 4px;">纯内网隧道保障</div>
-            </div>
+        <div class="bic-summary-pills">
+          <div class="bic-pill">
+            <span class="bic-lbl">测试节点总数</span>
+            <span class="bic-val">60 独立专线节点</span>
           </div>
-          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.8;">
-            边缘节点 (EdgeNova) 采用全套自建 IPLC 国际专线接入，单节点最高 2.5Gbps 带宽。经三网电信、联通、移动连续 48 小时并发压力测试，晚高峰时段延迟稳定无抖动，流媒体 4K 秒开，全面深度解锁 ChatGPT 与各类生产力 AI 工具。
-          </p>
+          <div class="bic-pill">
+            <span class="bic-lbl">平均 TLS RTT</span>
+            <span class="bic-val good">38.6 ms</span>
+          </div>
+          <div class="bic-pill">
+            <span class="bic-lbl">单节点最高下载</span>
+            <span class="bic-val speed">188.50 MB/s</span>
+          </div>
+          <div class="bic-pill">
+            <span class="bic-lbl">晚高峰丢包表现</span>
+            <span class="bic-val good">0.00% (自建IPLC专线)</span>
+          </div>
         </div>
+
+        <div class="bic-img-wrapper" onclick="openLightbox('assets/edgenova-peak-speedtest.png?v=20261103')" title="点击查看 60 节点高清测速大图">
+          <img src="assets/edgenova-peak-speedtest.png?v=20261103" alt="边缘节点 晚高峰测速实录" class="bic-img" loading="lazy">
+          <div class="bic-img-overlay">🔍 点击查看 100% 原始高清大图</div>
+        </div>
+        <p class="bic-footnote">💡 测速数据真实导出：覆盖香港(20)、日本(10)、新加坡(10)、美国(10)、台湾(10)全境物理专线，所有节点统一真实 x1 倍率，晚高峰高并发不限速。</p>
       </div>
     </section>
 

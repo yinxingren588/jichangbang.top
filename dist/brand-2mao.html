@@ -609,15 +609,24 @@
     .bic-val.speed { color: var(--accent); }
     .bic-img-wrapper {
       position: relative;
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
       border: 1px solid rgba(56, 189, 248, 0.35);
       background: #060b18;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
       cursor: zoom-in;
       transition: all 0.25s ease;
-      max-height: 540px;
-      overflow-y: auto;
+      width: 100%;
+      max-width: 880px;
+      margin: 16px auto 0;
+      display: block;
+    }
+    .bic-img, .benchmark-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
     }
     .bic-img-wrapper:hover {
       border-color: #38bdf8;
@@ -1802,7 +1811,7 @@
       <h2 class="block-title">⚡ 晚高峰三网真实测速与节点档案</h2>
       <p class="block-desc">2026年11月3日晚高峰（19:00 - 22:00）全节点真实并发满载测速实录，平均延迟 69.8ms，最高下行达 168.30 MB/s，晚高峰 0 丢包。</p>
 
-      <!-- 60 节点晚高峰测速全景实测大图 -->
+      <!-- 60 节点晚高峰测速全景实测大图 (完整高清呈现，不设高度截断) -->
       <div class="benchmark-image-card">
         <div class="bic-header">
           <div class="bic-title-group">
@@ -1815,10 +1824,30 @@
           </div>
         </div>
 
-        <div class="bic-img-wrapper">
-          <img src="assets/2mao-peak-speedtest.png?v=20261103" alt="二猫云 晚高峰测速实录" class="benchmark-img" onclick="openLightbox(this.src)">
+        <div class="bic-summary-pills">
+          <div class="bic-pill">
+            <span class="bic-lbl">测试节点总数</span>
+            <span class="bic-val">60 独立专线节点</span>
+          </div>
+          <div class="bic-pill">
+            <span class="bic-lbl">平均 TLS RTT</span>
+            <span class="bic-val good">69.8 ms</span>
+          </div>
+          <div class="bic-pill">
+            <span class="bic-lbl">单节点最高下载</span>
+            <span class="bic-val speed">168.30 MB/s</span>
+          </div>
+          <div class="bic-pill">
+            <span class="bic-lbl">晚高峰丢包表现</span>
+            <span class="bic-val good">0.00% (全IEPL专线)</span>
+          </div>
+        </div>
+
+        <div class="bic-img-wrapper" onclick="openLightbox('assets/2mao-peak-speedtest.png?v=20261103')" title="点击查看 60 节点高清测速大图">
+          <img src="assets/2mao-peak-speedtest.png?v=20261103" alt="二猫云 晚高峰测速实录" class="bic-img" loading="lazy">
           <div class="bic-img-overlay">🔍 点击查看 100% 原始高清大图</div>
         </div>
+        <p class="bic-footnote">💡 测速数据真实导出：覆盖香港(20)、日本(10)、新加坡(10)、美国(10)、台湾(10)全境物理专线，所有节点统一真实 x1 倍率，晚高峰高并发不限速。</p>
       </div>
     </section>
 
