@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
 
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
 Sitemap: https://jichangbang.top/sitemap.xml
+
